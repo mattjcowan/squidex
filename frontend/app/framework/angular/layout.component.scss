@@ -1,0 +1,57 @@
+$color-background-left: #f7fafc;
+
+.layout {
+    & {
+        @include absolute(0, 0, 0, 0);
+    }
+
+    &-sidebar {
+        background: $panel-light-background;
+        overflow-x: hidden;
+        overflow-y: hidden;
+        transition: 1s width ease;
+
+        &.closed {
+            width: 5rem;
+        }
+
+        &-left {
+            @include absolute(0, null, 0, 0);
+            background: $color-background-left;
+            border-radius: 0;
+            border-right: 1px solid $color-border;
+        }
+
+        &-right {
+            @include absolute(0, 0, 0, null);
+            border-left: 1px solid $color-border;
+        }
+
+        &-header {
+            padding: 1.5rem;
+
+            h3 {
+                @include truncate;
+                font-size: 1.5rem;
+                font-weight: 400;
+                line-height: 2rem;
+                margin: 0;
+                padding-right: 2rem;
+            }
+        }
+    }
+
+    &-content {
+        @include absolute(0, 0, 0, 0);
+
+        &.centered {
+            overflow: auto;
+
+            .layout-content-inner {
+                margin-left: auto;
+                margin-right: auto;
+                padding: 1.5rem;
+            }
+        }
+    }
+}

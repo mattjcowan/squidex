@@ -1,20 +1,22 @@
 <sqx-title message="i18n:common.clients"></sqx-title>
 
-<sqx-panel desiredWidth="50rem" showSidebar="true" grid="true">
-    <ng-container title>
-        {{ 'common.clients' | sqxTranslate }}
-    </ng-container>
-
-    <ng-container menu>
-        <button type="button" class="btn btn-text-secondary" (click)="reload()" title="i18n:clients.refreshTooltip">
-            <i class="icon-reset"></i> {{ 'common.refresh' | sqxTranslate }}
-        </button>
-
-        <sqx-shortcut keys="ctrl+shift+r" (trigger)="reload()"></sqx-shortcut>
-    </ng-container>
-    
+<sqx-layout sidebarWidth="17rem" minWidth="45rem" maxWidth="45rem" mode="right" name="clients">    
     <ng-container content>
-        <sqx-list-view [isLoading]="clientsState.isLoading | async">
+        <div class="row mb-4">
+            <div class="col">
+                <h3 class="panel-title">{{ 'common.clients' | sqxTranslate }}</h3>
+            </div>
+
+            <div class="col-auto">
+                <button type="button" class="btn btn-text-secondary" (click)="reload()" title="i18n:clients.refreshTooltip">
+                    <i class="icon-reset"></i> {{ 'common.refresh' | sqxTranslate }}
+                </button>
+        
+                <sqx-shortcut keys="ctrl+shift+r" (trigger)="reload()"></sqx-shortcut>
+            </div>
+        </div>
+
+        <sqx-list-view [isLoading]="clientsState.isLoading | async" overflow="true">
             <div content>
                 <ng-container *ngIf="(clientsState.isLoaded | async) && (clientsState.clients | async); let clients">
                     <div class="table-items-row table-items-row-empty" *ngIf="clients.length === 0">
@@ -32,7 +34,7 @@
         </sqx-list-view>
     </ng-container>
 
-    <ng-container sidebar>
+    <ng-container sidebarRight>
         <div class="panel-nav">
             <a class="panel-link" routerLink="history" routerLinkActive="active" queryParamsHandling="preserve" title="i18n:common.history" titlePosition="left">
                 <i class="icon-time"></i>
@@ -42,7 +44,7 @@
                 <i class="icon-help2"></i>
             </a>
         </div>
-    </ng-container>
-</sqx-panel>
 
-<router-outlet></router-outlet>
+        <router-outlet></router-outlet>
+    </ng-container>
+</sqx-layout>

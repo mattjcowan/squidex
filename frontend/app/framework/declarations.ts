@@ -39,6 +39,7 @@ export * from './angular/http/caching.interceptor';
 export * from './angular/http/http-extensions';
 export * from './angular/http/loading.interceptor';
 export * from './angular/image-source.directive';
+export * from './angular/layout.component';
 export * from './angular/list-view.component';
 export * from './angular/modals/dialog-renderer.component';
 export * from './angular/modals/modal-dialog.component';

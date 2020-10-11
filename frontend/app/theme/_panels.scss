@@ -37,6 +37,9 @@
 .panel-container {
     @include fixed($size-navbar-height, 0, 0, $size-sidebar-width);
     @include scrollbars(8px, $color-border-dark);
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
     overflow-x: auto;
     overflow-y: hidden;
 }

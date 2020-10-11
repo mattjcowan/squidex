@@ -1,4 +1,10 @@
+.nav {
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
 .nav-link {
+    color: $color-text;
     padding-bottom: .6rem;
     padding-top: .6rem;
     position: relative;
@@ -15,5 +21,5 @@
 }
 
 .icon-angle-right {
-    @include absolute(14px, 2rem, auto, auto);
+    @include absolute(14px, 1rem, auto, auto);
 }

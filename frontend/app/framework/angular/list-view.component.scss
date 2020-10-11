@@ -2,13 +2,18 @@
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
     padding: 0;
     position: relative;
 }
 
 :host(.overflow) {
     overflow: visible;
+
+    .grid-content {
+        padding: 0;
+    }
 }
 
 .grid {

@@ -1,0 +1,49 @@
+<div class="layout">
+    <div class="layout-content" 
+        [class.centered]="minWidth || maxWidth"
+        [style.left]="padding('left')"
+        [style.right]="padding('right')">
+
+        <div class="layout-content-inner"
+            [style.min-width]="minWidth"
+            [style.max-width]="maxWidth">
+            <ng-content></ng-content>
+        </div>
+    </div>
+
+    <div class="layout-sidebar layout-sidebar-left" [class.closed]="!isOpen" *ngIf="mode === 'left'">
+        <div class="layout-sidebar-header">
+            <div class="row">
+                <div class="col">
+                    <ng-content select="[sidebarLeftTitle]"></ng-content>
+                </div>
+                <div class="col-auto">
+                    <button type="button" class="btn" (click)="toggle()">
+                        <i [class.icon-angle-double-right]="!isOpen" [class.icon-angle-double-left]="isOpen"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="layout-sidebar-content" [style.width]="sidebarWidth">
+            <ng-content select="[sidebarLeft]"></ng-content>
+        </div>
+    </div>
+    
+    <div class="layout-sidebar layout-sidebar-right" [class.closed]="!isOpen" *ngIf="mode === 'right'">
+        <div class="layout-sidebar-header">
+            <div class="row">
+                <div class="col-auto">
+                    <button type="button" class="btn" (click)="toggle()">
+                        <i [class.icon-angle-double-right]="isOpen" [class.icon-angle-double-left]="!isOpen"></i>
+                    </button>
+                </div>
+                <div class="col">
+                    <ng-content select="[sidebarRightTitle]"></ng-content>
+                </div>
+            </div>
+        </div>
+        <div class="layout-sidebar-content" [style.width]="sidebarWidth">
+            <ng-content select="[sidebarRight]"></ng-content>
+        </div>
+    </div>
+</div>
